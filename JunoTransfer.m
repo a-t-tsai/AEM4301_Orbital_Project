@@ -1,19 +1,14 @@
-% Juno Transfer
 
 function [rsc,vsc,finalDate] = JunoTransfer(initialDate)
-%function [rsc,vsc,finalDate] = spacecraft(initialDate)
-
-% Simulates a Hohmann transfer to Venus
-% Set initial date in app to 12/20/2024
+% Simulates a Juno Transfer to Jupiter
+% Set initial date in app to 11/20/2026
 % According to the theorertical calculations, launchDay will be 12.
+
 %% Initialize
+    mu=1.327e11;          %Gravitational parameter for Sun
 
-    mu = 1.327e11;        %Gravitational parameter for Sun
-
-    maxDays = 1800;       % Number of days to follow the spaceraft = t12
-                          % for Earth-Venus transfer
-                          
-    % Start day is November 20th, 2026
+    maxDays=1800;         % Number of days to follow the spaceraft = t12
+                         % for Earth-Venus transfer
 
     rsc=zeros(maxDays,3); % Position vector array for spacecraft
     vsc=zeros(maxDays,3); % Velocity vector array for spacecraft
@@ -50,7 +45,7 @@ function [rsc,vsc,finalDate] = JunoTransfer(initialDate)
     %launch should be 2.5 km/s less than that of Earths and in the same
     %direction.
 
-    Vsc = V + 8.7933*V/norm(V); 
+    Vsc = V + 5.2884*V/norm(V); 
    
 
     % Calculate the orbital elements for spacecraft
@@ -61,3 +56,4 @@ function [rsc,vsc,finalDate] = JunoTransfer(initialDate)
 
    %This worked pretty well. We can still adjust the launch day for closer
    %interception.
+   
