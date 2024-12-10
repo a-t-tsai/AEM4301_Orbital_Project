@@ -6,5 +6,7 @@ t12 = pi * sqrt( (r1 + r2)^3 / (8 * mu));
 
 Lead_angle = pi - n*t12;
 
-dv = sqrt((2*mu/r1)-(2*mu/(r1+r2))) - sqrt(mu/r1)
+dv = sqrt((2*mu/r1)-(2*mu/(r1+r2))) - sqrt(mu/r1);
+
+ToF = 
 
