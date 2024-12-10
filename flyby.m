@@ -1,4 +1,4 @@
-function [Vout,DeltaMin]=flyby(Vp,Vsc,Delta,mu,rp,ccw)
+'/function [Vout,DeltaMin]=flyby(Vp,Vsc,Delta,mu,rp,ccw)
 %function [Vout,DeltaMin]=flyby(Vp,Vsc,Delta,mu,rp,ccw)
 %Calculate the heliocentric spacecraft velocity after the flyby 
 %for given values of:

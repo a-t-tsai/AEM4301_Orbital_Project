@@ -11,6 +11,7 @@ Lead_angle = (pi - n*t12) * (180/pi);
 
 dv = sqrt((2*mu/r1)-(2*mu/(r1+r2))) - sqrt(mu/r1);
 % change the dv to 8.725: to make it go halfway for an actual
+% change the time of flight to 791 days to intercept it correctly 
 
 %% Calculations for the Juno flyby
 
