@@ -5,7 +5,7 @@ function [rsc,vsc,finalDate] = JunoTransfer(initialDate)
 % According to the theorertical calculations, launchDay will be 12.
 
 %% Initialize
-    mu=1.327e11;          %Gravitational parameter for Sun
+    mu = 1.327e11;          %Gravitational parameter for Sun
 
     maxDays=1800;         % Number of days to follow the spaceraft = t12
                          % for Earth-Venus transfer
@@ -44,16 +44,18 @@ function [rsc,vsc,finalDate] = JunoTransfer(initialDate)
     %Per the theoretical calculations, the velocity of the spacecraft after
     %launch should be 2.5 km/s less than that of Earths and in the same
     %direction.
+for dayCount=launchDay:1800
+    if dayCount<791
+        Vsc = V + 5.2884*V/norm(V); 
+        [h,a,e,w,E0] = scElements(R,Vsc);
+        % new orbit for spacecraft
+        [rsc,vsc] = propagate(h,a,e,w,E0,launchDay+1,maxDays,rsc,vsc);
 
-    Vsc = V + 5.2884*V/norm(V); 
-   
+    else
+        Vsc = V + 8.8*V/norm(V);
+        [h,a,e,w,E0] = scElements(R,Vsc);
+        [rsc,vsc] = propagate(h,a,e,w,E0,launchDay+792,maxDays,rsc,vsc);
+    end
+end
 
-    % Calculate the orbital elements for spacecraft
-   [h,a,e,w,E0]=scElements(R,Vsc);
-
-    % new orbit for spacecraft
-   [rsc,vsc]=propagate(h,a,e,w,E0,launchDay+1,maxDays,rsc,vsc);
-
-   %This worked pretty well. We can still adjust the launch day for closer
-   %interception.
-   
+ 

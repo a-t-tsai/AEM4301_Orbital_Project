@@ -8,4 +8,4 @@ TofDay = t12 / 1.15741*10^-5;
 Lead_angle = (pi - n*t12) * (180/pi);
 
 % Vinf
-dv = sqrt((2*mu/r1)-(2*mu/(r1+r2))) - sqrt(mu/r1)
+dv = sqrt((2*mu/r1)-(2*mu/(r1+r2))) - sqrt(mu/r1);
