@@ -1,10 +1,17 @@
 function [rsc,vsc,finalDate] = spacecraft_a(initialDate)
 %function [rsc,vsc,finalDate] = spacecraft(initialDate)
+mu = 1.327E11;
+r1 = 1.496E8;
+r2 = 7.786E8;
+n = sqrt(mu/r2^3);
+t12 = pi * sqrt( (r1 + r2)^3 / (8 * mu));
 
+phi = pi - n*t12;
+
+dv = sqrt((2*mu/r1)-(2*mu/(r1+r2))) - sqrt(mu/r1);
 %This is a placeholder function. The spacecraft stays on Earth.
 %% Initialize
 
-    mu=1.327e11;          %Gravitational parameter for Sun
     maxDays=3000;         % Number of days to follow the spaceraft
     rsc=zeros(maxDays,3); % Position vector array for spacecraft
     vsc=zeros(maxDays,3); % Velocity vector array for spacecraft
