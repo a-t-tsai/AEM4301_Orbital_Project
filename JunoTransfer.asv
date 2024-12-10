@@ -12,8 +12,6 @@ function [rsc,vsc,finalDate] = JunoTransfer(initialDate)
 
     maxDays = 1800;       % Number of days to follow the spaceraft = t12
                           % for Earth-Venus transfer
-                          
-    % Start day is November 20th, 2026
 
     rsc=zeros(maxDays,3); % Position vector array for spacecraft
     vsc=zeros(maxDays,3); % Velocity vector array for spacecraft
