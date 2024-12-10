@@ -47,7 +47,6 @@ function [rsc,vsc,finalDate] = hohmannVenus(initialDate)
     %direction.
 
     Vsc = V - 2.5*V/norm(V); 
-   
 
     % Calculate the orbital elements for spacecraft
    [h,a,e,w,E0]=scElements(R,Vsc);
