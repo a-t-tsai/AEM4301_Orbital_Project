@@ -26,8 +26,8 @@ Vp2 = Vp(Va, mu2, r2);
 Vsc1 = Vsc(mu1, p1);
 Vsc2 = Vsc(mu2, p2);
 
-deltaV1 = Vp1 - Vsc1;
-deltaV2 = Vp2 - Vsc2;
+deltaV1 = abs(Vp1 - Vsc1);
+deltaV2 = abs(Vp2 - Vsc2);
 deltaVtot = abs(deltaV1 + deltaV2);
 
 % Calculations for the lead angle
