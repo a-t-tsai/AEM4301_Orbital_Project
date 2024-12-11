@@ -1,5 +1,4 @@
-
-function [rsc,vsc,finalDate] = JunoTransfer(initialDate)
+function [rsc,vsc,finalDate] = ClipperTransfer(initialDate)
 % Simulates a Juno Transfer to Jupiter
 % Set initial date in app to 11/20/2026
 % According to the theorertical calculations, launchDay will be 12.
@@ -45,17 +44,21 @@ function [rsc,vsc,finalDate] = JunoTransfer(initialDate)
     %launch should be 2.5 km/s less than that of Earths and in the same
     %direction.
 for dayCount=launchDay:1800
-    if dayCount<791
+    if dayCount<=160 
         Vsc = V + 5.2884*V/norm(V); 
+        % Hits mars at 160 days
         [h,a,e,w,E0] = scElements(R,Vsc);
         % new orbit for spacecraft
         [rsc,vsc] = propagate(h,a,e,w,E0,launchDay+1,maxDays,rsc,vsc);
-
+    elseif dayCount>160
+        Vsc = V + 5*V/norm(V); 
+        % Hits mars at 160 days
+        [h,a,e,w,E0] = scElements(R,Vsc);
+        % new orbit for spacecraft
+        [rsc,vsc] = propagate(h,a,e,w,E0,launchDay+1,maxDays,rsc,vsc);
     else
-        Vsc = V + 8.75*V/norm(V);
+        Vsc = V + 8.9*V/norm(V);
         [h,a,e,w,E0] = scElements(R,Vsc);
         [rsc,vsc] = propagate(h,a,e,w,E0,launchDay+792,maxDays,rsc,vsc);
     end
 end
-
- 

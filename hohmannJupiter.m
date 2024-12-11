@@ -8,7 +8,7 @@ function [rsc,vsc,finalDate] = hohmannJupiter(initialDate)
 
     mu=1.327e11;          %Gravitational parameter for Sun
 
-    maxDays=921;         % Number of days to follow the spaceraft = t12
+    maxDays=2000;         % Number of days to follow the spaceraft = t12
                          % for Earth-Jupiter transfer
 
     rsc=zeros(maxDays,3); % Position vector array for spacecraft
