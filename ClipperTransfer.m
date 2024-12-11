@@ -6,7 +6,7 @@ function [rsc,vsc,finalDate] = ClipperTransfer(initialDate)
 %% Initialize
     mu = 1.327e11;          %Gravitational parameter for Sun
 
-    maxDays=4000;         % Number of days to follow the spaceraft = t12
+    maxDays=2000;         % Number of days to follow the spaceraft = t12
                          % for Earth-Venus transfer
 
     rsc=zeros(maxDays,3); % Position vector array for spacecraft
@@ -44,21 +44,22 @@ function [rsc,vsc,finalDate] = ClipperTransfer(initialDate)
     %launch should be 2.5 km/s less than that of Earths and in the same
     %direction.
 for dayCount=launchDay:1800
-    if dayCount<=166
-        Vsc = V + 5.2884*V/norm(V); 
-        % Hits mars at 166 days
+    if dayCount<=168
+        Vsc = V + 5.2*V/norm(V); 
+        % Hits mars at 168 days
         [h,a,e,w,E0] = scElements(R,Vsc);
         % new orbit for spacecraft
         [rsc,vsc] = propagate(h,a,e,w,E0,launchDay+1,maxDays,rsc,vsc);
-    elseif dayCount>166 && dayCount<=712
+    elseif dayCount>168 && dayCount<=710
         Vsc = V + 5*V/norm(V); 
-        % Hits earth at 712
+        % Hits earth at 710
         [h,a,e,w,E0] = scElements(R,Vsc);
         % new orbit for spacecraft
         [rsc,vsc] = propagate(h,a,e,w,E0,launchDay+1,maxDays,rsc,vsc);
     else
         Vsc = V + 8.9*V/norm(V);
         [h,a,e,w,E0] = scElements(R,Vsc);
+        % Contacts Jupiter at 1750
         [rsc,vsc] = propagate(h,a,e,w,E0,launchDay+712,maxDays,rsc,vsc);
     end
 end
