@@ -1,7 +1,7 @@
 
 function [rsc,vsc,finalDate] = JunoTransfer(initialDate)
 % Simulates a Juno Transfer to Jupiter
-% Set initial date in app to 05/07/2031
+% Set initial date in app to 05/01/2031
 % According to the theorertical calculations, launchDay will be 12.
 
 %% Initialize
@@ -47,14 +47,14 @@ function [rsc,vsc,finalDate] = JunoTransfer(initialDate)
 for dayCount=launchDay:1800
     if dayCount<740
         Vsc = V + 5.25*V/norm(V); 
-        % Earth at 750
+        % Earth at 745
         [h,a,e,w,E0] = scElements(R,Vsc);
         % new orbit for spacecraft
         [rsc,vsc] = propagate(h,a,e,w,E0,launchDay+1,maxDays,rsc,vsc);
 
     else
         Vsc = V + 8.75*V/norm(V);
-        % Jupiter at 1820 ish
+        % Jupiter at 1720 ish
         [h,a,e,w,E0] = scElements(R,Vsc);
         [rsc,vsc] = propagate(h,a,e,w,E0,launchDay+730,maxDays,rsc,vsc);
     end
