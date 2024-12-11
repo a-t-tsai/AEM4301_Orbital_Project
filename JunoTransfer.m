@@ -45,16 +45,18 @@ function [rsc,vsc,finalDate] = JunoTransfer(initialDate)
     %launch should be 2.5 km/s less than that of Earths and in the same
     %direction.
 for dayCount=launchDay:1800
-    if dayCount<791
+    if dayCount<740
         Vsc = V + 5.25*V/norm(V); 
+        % Earth at 750
         [h,a,e,w,E0] = scElements(R,Vsc);
         % new orbit for spacecraft
         [rsc,vsc] = propagate(h,a,e,w,E0,launchDay+1,maxDays,rsc,vsc);
 
     else
         Vsc = V + 8.75*V/norm(V);
+        % Jupiter at 1820 ish
         [h,a,e,w,E0] = scElements(R,Vsc);
-        [rsc,vsc] = propagate(h,a,e,w,E0,launchDay+791,maxDays,rsc,vsc);
+        [rsc,vsc] = propagate(h,a,e,w,E0,launchDay+730,maxDays,rsc,vsc);
     end
 end
 
