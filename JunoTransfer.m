@@ -7,7 +7,7 @@ function [rsc,vsc,finalDate] = JunoTransfer(initialDate)
 %% Initialize
     mu = 1.327e11;          %Gravitational parameter for Sun
 
-    maxDays=4000;         % Number of days to follow the spaceraft = t12
+    maxDays=1720;         % Number of days to follow the spaceraft = t12
                          % for Earth-Venus transfer
 
     rsc=zeros(maxDays,3); % Position vector array for spacecraft
