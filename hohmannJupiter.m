@@ -2,14 +2,14 @@ function [rsc,vsc,finalDate] = hohmannJupiter(initialDate)
 %function [rsc,vsc,finalDate] = spacecraft(initialDate)
 
 % Simulates a Hohmann transfer to Venus
-% Set initial date in app to 12/20/2024
+% Set initial date in app to March 21st, 2032
 % According to the theorertical calculations, launchDay will be 12.
 %% Initialize
 
     mu=1.327e11;          %Gravitational parameter for Sun
 
-    maxDays=920;         % Number of days to follow the spaceraft = t12
-                         % for Earth-Venus transfer
+    maxDays=921;         % Number of days to follow the spaceraft = t12
+                         % for Earth-Jupiter transfer
 
     rsc=zeros(maxDays,3); % Position vector array for spacecraft
     vsc=zeros(maxDays,3); % Velocity vector array for spacecraft

@@ -52,7 +52,7 @@ for dayCount=launchDay:1800
         [rsc,vsc] = propagate(h,a,e,w,E0,launchDay+1,maxDays,rsc,vsc);
 
     else
-        Vsc = V + 8.8*V/norm(V);
+        Vsc = V + 9*V/norm(V);
         [h,a,e,w,E0] = scElements(R,Vsc);
         [rsc,vsc] = propagate(h,a,e,w,E0,launchDay+792,maxDays,rsc,vsc);
     end
