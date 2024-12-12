@@ -12,7 +12,7 @@ r2 = 778.6*10^6; % Orbital radius of the arrival planet (km)
 p2 = 200 + 71490; % Parking orbit radius around the arrival planet (km)
 muSun = 132712441018; % Gravitational parameter for the Sun (km^3/s^2)
 
-% Functions
+% Functions  
 Vdepart = @(r1, r2) sqrt(muSun/r1)*(sqrt((2*r2)/(r1+r2))-1);
 Varrive = @(r1, r2) sqrt(muSun/r2)*(1-sqrt((2*r1)/(r1+r2)));
 Vp = @(V, mu, r) sqrt((V^2) + (2*mu)/r);
@@ -37,6 +37,16 @@ T_J = 2*pi*sqrt(r2^3/mu2);
 One_way_t = (pi/sqrt(muSun))*(((r1+r2)/2)^(3/2));
 n = @(T) (2*pi)/T;
 si = pi-n(T_E)*One_way_t;
+
+% Calculations for the Departure Hyperbola Parameters
+Vp_D = Vp1; % planet velocity vector
+Vsc_D = Vsc1;% spacecraft heliocentric velocity 
+Delta_D =;% aiming radius
+mu_D = mu1; % planet gravitational parameter
+rp_D = r1; % planet radius
+CCW_D = 1;% ccw = 1 for counterclockwise turn, 0 othrwise
+
+[Vout,DeltaMin]=flyby(Vp_D,Vsc_D,Delta_D,mu_D,rp_D,CCW_D);
 
 % Output results
 fprintf('Delta-V for departure: %.2f km/s\n', deltaV1);
