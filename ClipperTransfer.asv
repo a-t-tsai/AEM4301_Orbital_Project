@@ -6,7 +6,7 @@ function [rsc,vsc,finalDate] = ClipperTransfer(initialDate)
 %% Initialize
     mu = 1.327e11;          %Gravitational parameter for Sun
 
-    maxDays=1375;         % Number of days to follow the spaceraft = t12
+    maxDays=2500;         % Number of days to follow the spaceraft = t12
                          % for Earth-Venus transfer
 
     rsc=zeros(maxDays,3); % Position vector array for spacecraft
@@ -51,25 +51,25 @@ function [rsc,vsc,finalDate] = ClipperTransfer(initialDate)
         [rsc,vsc] = propagate(h,a,e,w,E0,launchDay+1,maxDays,rsc,vsc);
 
 % Next 
-% 
+
 load MarsClipperFB1.mat
 
    % Calculate the velocity after the flyby
-   [Vsc1,DeltaMin]=flyby(Vp1,Vsc1,4900,42828,3396,0);
+   [Vsc1,DeltaMin]=flyby(Vp1,Vsc1,4200,42828,3396,0);
    DeltaMin %Can output Deltamin to keep the aiming radius above this value
 
    %Calculate the orbital elements for the spacecraft after the flyby
    [h,a,e,w,E0]=scElements(R1,Vsc1);
 
    %propagate orbit to end
-   [rsc,vsc]=propagate(h,a,e,w,E0,148+1,790,rsc,vsc);
+   [rsc,vsc]=propagate(h,a,e,w,E0,170+1,790,rsc,vsc);
 
   % Last 
 
 load EarthClipperFB1.mat
 
    % Calculate the velocity after the flyby
-   [Vsc1,DeltaMin]=flyby(Vp1,Vsc1,9030.9,398600,6378,1);
+   [Vsc1,DeltaMin]=flyby(Vp1,Vsc1,8700,398600,6378,1);
    DeltaMin %Can output Deltamin to keep the aiming radius above this value
 
    %Calculate the orbital elements for the spacecraft after the flyby
