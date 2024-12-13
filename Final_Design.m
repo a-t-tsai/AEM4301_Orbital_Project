@@ -1,7 +1,7 @@
 %% Variables
 mu = 1.327E11;
 r1 = 1.496E8;
-r2 = 227.9E6;
+r2 = 788.9E6;
 
 %% Calculations for the jupiter hohmann transfer
 n = sqrt(mu/r2^3);
