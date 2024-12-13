@@ -1,4 +1,4 @@
-'/function [Vout,DeltaMin]=flyby(Vp,Vsc,Delta,mu,rp,ccw)
+function [Vout,DeltaMin]=flyby(Vp,Vsc,Delta,mu,rp,ccw)
 %function [Vout,DeltaMin]=flyby(Vp,Vsc,Delta,mu,rp,ccw)
 %Calculate the heliocentric spacecraft velocity after the flyby 
 %for given values of:
@@ -24,7 +24,7 @@ else
 end
 DeltaMin = sqrt(2*mu/rp/vinf^2+1)*rp;
 if Delta<DeltaMin
-    s=sprintf('You crashed! DeltaMin= %f',DeltaMin)
+    s=sprintf('You crashed! DeltaMin= %f',DeltaMin);
     error(s)
 end
 VinfOut=vinf*[cos(thetaOut),sin(thetaOut),0];
