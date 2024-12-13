@@ -6,7 +6,7 @@ function [rsc,vsc,finalDate] = ClipperTransfer(initialDate)
 %% Initialize
     mu = 1.327e11;          %Gravitational parameter for Sun
 
-    maxDays=1750;         % Number of days to follow the spaceraft = t12
+    maxDays=3000;         % Number of days to follow the spaceraft = t12
                          % for Earth-Venus transfer
 
     rsc=zeros(maxDays,3); % Position vector array for spacecraft
