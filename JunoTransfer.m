@@ -44,7 +44,7 @@ function [rsc,vsc,finalDate] = JunoTransfer(initialDate)
     %Per the theoretical calculations, the velocity of the spacecraft after
     %launch should be 2.5 km/s less than that of Earths and in the same
     %direction.
-for dayCount=launchDay:1800
+for dayCount=launchDay:1720
     if dayCount<740
         Vsc = V + 5.25*V/norm(V); 
         % Earth at 745
